@@ -1,0 +1,243 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Animais
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu Content</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+<ion-menu-toggle>
+  <ion-button>Fechar lista</ion-button>
+  <ul>
+    <li>Mosquito</li>
+    <li>Baleia</li>
+    <li>Arara</li>
+    <li>Beija-flor</li>
+    <li>Golfinho</li>
+    <li>Gavião</li>
+    <li>Cachorro</li>
+    <li>Cavalo</li>
+  </ul>
+</ion-menu-toggle>
+</ion-content>
+</ion-menu>
+
+<div class="ion-content" id="main-content">
+<h1>Adivinhação de animais</h1>
+    <p>Escolha um animal mentalmente da lista</p>
+    <ion-menu-toggle>
+      <ion-button>Ver lista</ion-button>
+    </ion-menu-toggle>
+</div>
+
+<!-- <ion-card>
+  <ion-card-header>
+    <ion-card-title>Pergunta 1</ion-card-title>
+    <ion-card-subtitle>IA de animais</ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    Seu animal é mamífero?
+  </ion-card-content>
+  <ion-button fill="clear">Sim</ion-button>
+  <ion-button fill="clear">Não</ion-button>
+</ion-card> -->
+
+<ion-card *ngIf="!cardEscondido">
+  <ion-card-header>
+    <ion-card-title>Pergunta 1</ion-card-title>
+    <ion-card-subtitle>IA de animais</ion-card-subtitle>
+  </ion-card-header>
+    <ion-card-content>
+      Seu animal é mamífero?
+    </ion-card-content>
+  <ion-button fill="clear" (click)="hides()" >Sim</ion-button>
+  <ion-button fill="clear" (click)="hiden()">Não</ion-button>
+</ion-card>
+
+
+<ion-card *ngIf="!p2s">
+  <ion-card-header>
+    <ion-card-title>Pergunta 2</ion-card-title>
+    <ion-card-subtitle>IA de animais</ion-card-subtitle>
+  </ion-card-header>
+    <ion-card-content>
+      Seu animal é aquático?
+    </ion-card-content>
+  <ion-button fill="clear" (click)="hide2s()">Sim</ion-button>
+  <ion-button fill="clear" (click)="hide2n()">Não</ion-button>
+</ion-card>
+
+<ion-card *ngIf="!p2n">
+  <ion-card-header>
+    <ion-card-title>Pergunta 2</ion-card-title>
+    <ion-card-subtitle>IA de animais</ion-card-subtitle>
+  </ion-card-header>
+    <ion-card-content>
+      Seu animal é de médio porte?
+    </ion-card-content>
+  <ion-button fill="clear" (click)="hide2s2()">Sim</ion-button>
+  <ion-button fill="clear" (click)="hide2n2()">Não</ion-button>
+</ion-card>
+
+
+
+<ion-card *ngIf="!p3s">
+  <ion-card-header>
+    <ion-card-title>Pergunta 3</ion-card-title>
+    <ion-card-subtitle>IA de animais</ion-card-subtitle>
+  </ion-card-header>
+    <ion-card-content>
+      Seu animal é muito grande?
+    </ion-card-content>
+  <ion-button fill="clear" (click)="veranimal1()">Sim</ion-button>
+  <ion-button fill="clear" (click)="veranimal2()">Não</ion-button>
+</ion-card>
+
+<ion-card *ngIf="!p3n">
+  <ion-card-header>
+    <ion-card-title>Pergunta 3</ion-card-title>
+    <ion-card-subtitle>IA de animais</ion-card-subtitle>
+  </ion-card-header>
+    <ion-card-content>
+      Seu animal pode ser domesticado em casa?
+    </ion-card-content>
+  <ion-button fill="clear" (click)="veranimal3()">Sim</ion-button>
+  <ion-button fill="clear" (click)="veranimal4()">Não</ion-button>
+</ion-card>
+
+<ion-card *ngIf="!p3s2">
+  <ion-card-header>
+    <ion-card-title>Pergunta 3</ion-card-title>
+    <ion-card-subtitle>IA de animais</ion-card-subtitle>
+  </ion-card-header>
+    <ion-card-content>
+      Seu animal está em risco de extinção?
+    </ion-card-content>
+  <ion-button fill="clear" (click)="veranimal5()">Sim</ion-button>
+  <ion-button fill="clear" (click)="veranimal6()">Não</ion-button>
+</ion-card>
+
+<ion-card *ngIf="!p3n2">
+  <ion-card-header>
+    <ion-card-title>Pergunta 3</ion-card-title>
+    <ion-card-subtitle>IA de animais</ion-card-subtitle>
+  </ion-card-header>
+    <ion-card-content>
+      Seu animal tem penas?
+    </ion-card-content>
+  <ion-button fill="clear" (click)="veranimal7()">Sim</ion-button>
+  <ion-button fill="clear" (click)="veranimal8()">Não</ion-button>
+</ion-card>
+
+<ion-button (click)="atualizarPagina()">Reiniciar perguntas</ion-button>
+
+<!-- perguntas 4
+
+
+
+<ion-card *ngIf="!p4s">
+  <ion-card-header>
+    <ion-card-title>Pergunta 3</ion-card-title>
+    <ion-card-subtitle>IA de animais</ion-card-subtitle>
+  </ion-card-header>
+    <ion-card-content>
+      Seu animal anda em 4 patas?
+    </ion-card-content>
+  <ion-button fill="clear" (click)="hide3s()">Sim</ion-button>
+  <ion-button fill="clear" (click)="hide3n()">Não</ion-button>
+</ion-card>
+
+<ion-card *ngIf="!p4n">
+  <ion-card-header>
+    <ion-card-title>Pergunta 3</ion-card-title>
+    <ion-card-subtitle>IA de animais</ion-card-subtitle>
+  </ion-card-header>
+    <ion-card-content>
+      Seu animal consegue voar?
+    </ion-card-content>
+  <ion-button fill="clear" (click)="hide3s2()">Sim</ion-button>
+  <ion-button fill="clear" (click)="hide3n2()">Não</ion-button>
+</ion-card>
+
+<ion-card *ngIf="!p4s2">
+  <ion-card-header>
+    <ion-card-title>Pergunta 3</ion-card-title>
+    <ion-card-subtitle>IA de animais</ion-card-subtitle>
+  </ion-card-header>
+    <ion-card-content>
+      Seu animal é grande?
+    </ion-card-content>
+  <ion-button fill="clear" (click)="hide3s3()">Sim</ion-button>
+  <ion-button fill="clear" (click)="hide3n3()">Não</ion-button>
+</ion-card>
+
+<ion-card *ngIf="!p4n2">
+  <ion-card-header>
+    <ion-card-title>Pergunta 3</ion-card-title>
+    <ion-card-subtitle>IA de animais</ion-card-subtitle>
+  </ion-card-header>
+    <ion-card-content>
+      Seu animal é pequeno?
+    </ion-card-content>
+  <ion-button fill="clear" (click)="hide3s4()">Sim</ion-button>
+  <ion-button fill="clear" (click)="hide3n4()">Não</ion-button>
+</ion-card>
+
+
+<ion-card *ngIf="!p4s3">
+  <ion-card-header>
+    <ion-card-title>Pergunta 3</ion-card-title>
+    <ion-card-subtitle>IA de animais</ion-card-subtitle>
+  </ion-card-header>
+    <ion-card-content>
+      Seu animal anda em 4 patas?
+    </ion-card-content>
+  <ion-button fill="clear" (click)="hide3s()">Sim</ion-button>
+  <ion-button fill="clear" (click)="hide3n()">Não</ion-button>
+</ion-card>
+
+<ion-card *ngIf="!p4n3">
+  <ion-card-header>
+    <ion-card-title>Pergunta 3</ion-card-title>
+    <ion-card-subtitle>IA de animais</ion-card-subtitle>
+  </ion-card-header>
+    <ion-card-content>
+      Seu animal consegue voar?
+    </ion-card-content>
+  <ion-button fill="clear" (click)="hide3s2()">Sim</ion-button>
+  <ion-button fill="clear" (click)="hide3n2()">Não</ion-button>
+</ion-card>
+
+<ion-card *ngIf="!p4s4">
+  <ion-card-header>
+    <ion-card-title>Pergunta 3</ion-card-title>
+    <ion-card-subtitle>IA de animais</ion-card-subtitle>
+  </ion-card-header>
+    <ion-card-content>
+      Seu animal é grande?
+    </ion-card-content>
+  <ion-button fill="clear" (click)="hide3s3()">Sim</ion-button>
+  <ion-button fill="clear" (click)="hide3n3()">Não</ion-button>
+</ion-card>
+
+<ion-card *ngIf="!p4n4">
+  <ion-card-header>
+    <ion-card-title>Pergunta 3</ion-card-title>
+    <ion-card-subtitle>IA de animais</ion-card-subtitle>
+  </ion-card-header>
+    <ion-card-content>
+      Seu animal é pequeno?
+    </ion-card-content>
+  <ion-button fill="clear" (click)="hide3s4()">Sim</ion-button>
+  <ion-button fill="clear" (click)="hide3n4()">Não</ion-button>
+</ion-card> -->
+
+</ion-content>
